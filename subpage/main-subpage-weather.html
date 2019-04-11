@@ -6,6 +6,7 @@
 		<title></title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../css/base.css" />
 		<style>
 			.weather-header {
 				position: relative;
@@ -14,36 +15,92 @@
 			
 			#weather-bg {
 				width: 100%;
-				height: 156px;
+				height: 100%;
 				position: absolute;
-			}
-			
-			.local-container {
-				position: absolute;
-				top: 8px;
-				left: 8px;
-			}
-			
-			.local-container>p {
-				line-height: 16px;
-				display: inline-block;
-				color: #FFFFFF;
-				margin: 0;
+				top: 0px;
+				line-break: 0px;
 			}
 			
 			.weather-temp-container {
 				position: relative;
-				top: 32px;
-				left: 8px;
+				padding: 8px 8px;
 			}
-			.weather-temp-container>span#temp-tag{
+			
+			.weather-temp-container>.weather-temp {
+				position: relative;
+			}
+			
+			.weather-temp-container>.weather-temp>span#temp-tag {
 				position: absolute;
 				top: 0px;
-				left: 46px;
+				left: 54px;
 			}
-			.weather-temp-container>span#temp-count{
-				font: 600 38px/38px "微软雅黑";
+			
+			.weather-temp-container>.weather-temp>span#temp-count {
+				font: 600 46px/46px "微软雅黑";
 			}
+			
+			.weather-temp-container>.weather-temp>#temp-status {
+				width: 36px;
+				height: 36px;
+				position: absolute;
+				top: 0px;
+				left: 72px;
+			}
+			
+			.weather-temp-container>.weather-date>#temp-date {
+				font: 400 16px/16px "微软雅黑";
+				color: #fff;
+			}
+			
+			.weather-temp-container>.weather-date>#temp-week {
+				margin-top: 4px;
+				font: 400 16px/16px "微软雅黑";
+				color: #fff;
+			}
+			
+			.local-container {
+				height: 32px;
+				position: absolute;
+				top: 54px;
+				left: 8px;
+				
+				font-size: 12px;
+			}
+			
+			.local-container #local {
+				width: 13px;
+				height: 16px;
+				position: absolute;
+				top: 8px;
+				left: 0;
+			}
+			
+			.local-container #local-lable {
+				padding-left: 16px;
+				line-height: 32px;
+				color: #FFFFFF;
+				
+			}
+			.local-container #weather-header-PM25-value,
+			.local-container #local-lable{
+				position: relative;
+				padding-right: 4px;
+			}
+			.local-container #local-lable::after,
+			.local-container #weather-header-PM25-value::after{
+				content: "";
+				display: block;
+				width: 1px;
+				height: 10px;
+				background-color: #FFF;
+				
+				position: absolute;
+				right: 0px;
+				top: 3px;
+				
+			}
+			
 		</style>
 	</head>
 
@@ -52,14 +109,27 @@
 			<div class="weather-header">
 				<img id="weather-bg" src="../img/01.png.webp.jpg" />
 				<div class="local-container">
-					<img id="local" src="../icon/pos.png" />
-					<p>
-						广州 当前时间：2019-04-11周四17:16最近访问： 北京天气
-					</p>
+					<a href="#">
+						<img id="local" src="../icon/pos.png" />
+						<span id="local-lable">广州</span>
+					</a>
+					<span id="weather-header-PM25">PM25</span>
+					<span id="weather-header-PM25-value">优</span>
+					<span id="weather-header-notice">阵雨来袭，出门记得带伞</span>
+
 				</div>
-				<div class="weather-temp-container">
-					<span id="temp-count">26</span>
-					<span id="temp-tag">℃</span>
+				<div class="weather-temp-container mui-clearfix">
+					<div class="weather-temp fl">
+						<span id="temp-count">26</span>
+						<span id="temp-tag">℃</span>
+						<img id="temp-status" src="../icon/02.png" />
+					</div>
+
+					<div class="weather-date fr">
+						<p id="temp-date">2019-04-11</p>
+						<p id="temp-week">星期四</span>
+					</div>
+
 				</div>
 			</div>
 
