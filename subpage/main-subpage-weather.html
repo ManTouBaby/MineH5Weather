@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<style>
+			.weather-header {
+				position: relative;
+				color: #fff;
+			}
+			
+			#weather-bg {
+				width: 100%;
+				height: 156px;
+				position: absolute;
+			}
+			
+			.local-container {
+				position: absolute;
+				top: 8px;
+				left: 8px;
+			}
+			
+			.local-container>p {
+				line-height: 16px;
+				display: inline-block;
+				color: #FFFFFF;
+				margin: 0;
+			}
+			
+			.weather-temp-container {
+				position: relative;
+				top: 32px;
+				left: 8px;
+			}
+			.weather-temp-container>span#temp-tag{
+				position: absolute;
+				top: 0px;
+				left: 46px;
+			}
+			.weather-temp-container>span#temp-count{
+				font: 600 38px/38px "微软雅黑";
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div class="weather-header">
+				<img id="weather-bg" src="../img/01.png.webp.jpg" />
+				<div class="local-container">
+					<img id="local" src="../icon/pos.png" />
+					<p>
+						广州 当前时间：2019-04-11周四17:16最近访问： 北京天气
+					</p>
+				</div>
+				<div class="weather-temp-container">
+					<span id="temp-count">26</span>
+					<span id="temp-tag">℃</span>
+				</div>
+			</div>
+
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,72 @@
+
+.weather-icon-00 {
+    background-image: url(../icon/00.png)
+}
+
+.weather-icon-01 {
+    background-image: url(../icon/01.png)
+}
+
+.weather-icon-02 {
+    background-image: url(../icon/02.png)
+}
+
+.weather-icon-03, .weather-icon-07, .weather-icon-21, .weather-icon-22 {
+    background-image: url(../icon/03.png)
+}
+
+.weather-icon-04 {
+    background-image: url(../icon/04.png)
+}
+
+.weather-icon-05 {
+    background-image: url(../icon/05.png)
+}
+
+.weather-icon-06, .weather-icon-19 {
+    background-image: url(../icon/06.png)
+}
+
+.weather-icon-08, .weather-icon-09, .weather-icon-10, .weather-icon-11, .weather-icon-12, .weather-icon-23, .weather-icon-24, .weather-icon-25 {
+    background-image: url(../icon/08.png)
+}
+
+.weather-icon-13, .weather-icon-33 {
+    background-image: url(../icon/13.png)
+}
+
+.weather-icon-14, .weather-icon-26 {
+    background-image: url(../icon/14.png)
+}
+
+.weather-icon-15, .weather-icon-16, .weather-icon-17, .weather-icon-27, .weather-icon-28 {
+    background-image: url(../icon/15.png)
+}
+
+.weather-icon-18, .weather-icon-32, .weather-icon-49, .weather-icon-57, .weather-icon-58 {
+    background-image: url(../icon/18.png)
+}
+
+.weather-icon-20, .weather-icon-31 {
+    background-image: url(../icon/20.png)
+}
+
+.weather-icon-29, .weather-icon-30 {
+    background-image: url(../icon/29.png)
+}
+
+.weather-icon-53, .weather-icon-54, .weather-icon-55, .weather-icon-56 {
+    background-image: url(../icon/33.png)
+}
+
+.weather-icon-00n {
+    background-image: url(../icon/00n.png)
+}
+
+.weather-icon-01n {
+    background-image: url(../icon/01n.png)
+}
+
+.weather-icon-13n {
+    background-image: url(../icon/13n.png)
+}
