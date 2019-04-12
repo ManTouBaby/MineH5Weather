@@ -1,14 +1,14 @@
 {
-	"main.html": {
-		"resources": [
-			"subpage/main-subpage-weather.html",
-			"subpage/main-subpage-news.html"
-		],
-		"refer": [
-			"subpage/main-subpage-weather.html",
-			"subpage/main-subpage-setting.html",
-			"subpage/main-subpage-photo.html",
-			"subpage/main-subpage-news.html"
-		]
-	}
+  "main.html": {
+    "resources": [
+      "subpage/main-subpage-weather.html",
+      "subpage/main-subpage-news.html"
+    ],
+    "refer": [
+      "subpage/main-subpage-weather.html",
+      "subpage/main-subpage-setting.html",
+      "subpage/main-subpage-photo.html",
+      "subpage/main-subpage-news.html"
+    ]
+  }
 }

@@ -5,99 +5,93 @@
 		<meta charset="UTF-8">
 		<title></title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<link href="../css/mui.min.css" rel="stylesheet" />
 		<link rel="stylesheet" type="text/css" href="../css/base.css" />
 		<style>
-			.weather-header {
-				position: relative;
-				color: #fff;
-			}
+			/*导航栏设置*/
 			
 			#weather-bg {
 				width: 100%;
 				height: 100%;
-				position: absolute;
+				position: fixed;
 				top: 0px;
-				line-break: 0px;
+				left: 0px;
 			}
 			
-			.weather-temp-container {
-				position: relative;
-				padding: 8px 8px;
-			}
-			
-			.weather-temp-container>.weather-temp {
-				position: relative;
-			}
-			
-			.weather-temp-container>.weather-temp>span#temp-tag {
-				position: absolute;
-				top: 0px;
-				left: 54px;
-			}
-			
-			.weather-temp-container>.weather-temp>span#temp-count {
-				font: 600 46px/46px "微软雅黑";
-			}
-			
-			.weather-temp-container>.weather-temp>#temp-status {
-				width: 36px;
-				height: 36px;
-				position: absolute;
-				top: 0px;
-				left: 72px;
-			}
-			
-			.weather-temp-container>.weather-date>#temp-date {
-				font: 400 16px/16px "微软雅黑";
-				color: #fff;
-			}
-			
-			.weather-temp-container>.weather-date>#temp-week {
-				margin-top: 4px;
-				font: 400 16px/16px "微软雅黑";
-				color: #fff;
-			}
-			
-			.local-container {
-				height: 32px;
-				position: absolute;
-				top: 54px;
-				left: 8px;
+			#commen-bg {
+				width: 100%;
+				height: 100%;
+				background-color: rgba(255, 255, 255, .3);
 				
-				font-size: 12px;
+				position: fixed;
+				top: 0px;
+				left: 0px;
 			}
 			
-			.local-container #local {
-				width: 13px;
-				height: 16px;
-				position: absolute;
-				top: 8px;
-				left: 0;
+			#page-content {
+				width: 100%;
+				z-index: 8;
+				
+				position: fixed;
+				top: 0px;
+				left: 0px;
 			}
 			
-			.local-container #local-lable {
-				padding-left: 16px;
-				line-height: 32px;
+			.header-menu {
+				width: 24px;
+				height: 24px;
+				text-align: center;
+				line-height: 24px;
+			}
+			
+			.mui-bar>.mui-icon-bars {
 				color: #FFFFFF;
-				
 			}
-			.local-container #weather-header-PM25-value,
-			.local-container #local-lable{
-				position: relative;
-				padding-right: 4px;
+			
+			.local-date-container {
+				margin-left: 8px;
+				padding-top: 0.8px;
 			}
-			.local-container #local-lable::after,
-			.local-container #weather-header-PM25-value::after{
-				content: "";
-				display: block;
-				width: 1px;
-				height: 10px;
-				background-color: #FFF;
+			
+			.icon-dingwei {
+				color: #FFFFFF;
+				font-size: 18px;
+			}
+			
+			.icon-fenxiang {
+				font-size: 32px;
+				padding: 11px 0;
+				color: #FFFFFF;
+			}
+			
+			.weather-news {
+				margin: 8px;
+				padding: 2px;
+				border: 1px solid;
+				font-family: "宋体";
+				border-radius: 4px;
+				border-color: #fff;
+				color: #FFF;
+			}
+			
+			.weather-date {
+				color: #FFFFFF;
+			}
+			/*天气内容*/
+			.weather-content{
 				
-				position: absolute;
-				right: 0px;
-				top: 3px;
+				
+				background-color: transparent;
+				color: #FFFFFF;
+			}
+			.temp-count{
+				font:100 120px/120px "微软雅黑";
+				height: 120px;
+			
+			}
+			.temp-tag{
 				
 			}
 			
@@ -105,38 +99,42 @@
 	</head>
 
 	<body>
-		<div class="mui-content">
-			<div class="weather-header">
-				<img id="weather-bg" src="../img/01.png.webp.jpg" />
-				<div class="local-container">
-					<a href="#">
-						<img id="local" src="../icon/pos.png" />
-						<span id="local-lable">广州</span>
-					</a>
-					<span id="weather-header-PM25">PM25</span>
-					<span id="weather-header-PM25-value">优</span>
-					<span id="weather-header-notice">阵雨来袭，出门记得带伞</span>
-
+		<img id="weather-bg" src="../img/previe_default_themes_4.jpg" />
+		<div id="commen-bg"></div>
+		<div class="page-content">
+			<header class="mui-bar  mui-bar-transparent">
+				<a class="mui-icon-bars mui-icon mui-icon-left-nav mui-pull-left"></a>
+				<div class="local-date-container mui-media-body mui-pull-left">
+					<span class="icon-dingwei" id="local-lable">广州</span>
+					<p class="weather-date"><span>04月12日</span> <span>周五</span> <span>农历三月初八</span></p>
 				</div>
-				<div class="weather-temp-container mui-clearfix">
-					<div class="weather-temp fl">
-						<span id="temp-count">26</span>
-						<span id="temp-tag">℃</span>
-						<img id="temp-status" src="../icon/02.png" />
-					</div>
+				<a href="" class="icon-fenxiang mui-pull-right"></a>
+				<a href="" class="weather-news mui-pull-right">新闻</a>
+			</header>
 
-					<div class="weather-date fr">
-						<p id="temp-date">2019-04-11</p>
-						<p id="temp-week">星期四</span>
-					</div>
-
-				</div>
+			<div class="mui-content weather-content">
+				<span class="temp-count">18</span>
+				<span class="temp-tag">18</span>
 			</div>
-
 		</div>
+
 		<script src="../js/mui.min.js"></script>
 		<script type="text/javascript">
 			mui.init()
+			mui.plusReady(function() {
+				//判断是否支持沉浸式
+				var isImmersedStatusbar = plus.navigator.isImmersedStatusbar();
+				console.log(isImmersedStatusbar);
+				//获取系统状态栏高度
+				var StatusbarHeight = plus.navigator.getStatusbarHeight();
+				console.log(StatusbarHeight);
+				/*var headerH = mui('.mui-bar-nav').eq(0).height();
+				console.log(headerH);
+				mui('.mui-bar-nav').eq(0).css({
+					height: (headerH + StatusbarHeight) + 'px',
+					'paddingTop': StatusbarHeight + 'px'
+				});*/
+			});
 		</script>
 	</body>
 

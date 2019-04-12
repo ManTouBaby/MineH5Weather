@@ -40,6 +40,14 @@
         }
 	},
 	"plus": {
+		"statusbar": {
+			"immersed": "supportedDevice",
+			"style": "dark"
+		},
+		"splashscreen": {
+			"autoclose": false,/*如果为true，程序启动的图片可以自动关闭，如果为false，开发者需要手动关闭*/
+			"waiting": true
+		},
 		"launchwebview": {
 			"bottom": "0px",
 			"background": "#fff",

@@ -9,3 +9,56 @@ p{
 	float: right;
 }
 
+/*定义字体*/
+@font-face {
+    font-family: "weather font";
+    src: url("../fonts/mine-iconfont.eot") format('embedded-opentype'),
+    url("../fonts/mine-iconfont.svg") format('svg'),
+    url("../fonts/mine-iconfont.ttf") format('truetype'),
+    url("../fonts/mine-iconfont.woff") format('woff') ;
+}
+
+[class^='icon'], [class*=' icon-'] {
+    font-family: weather font;
+    font-style: normal;
+}
+
+.icon-eye:before {
+  content: "\e603";
+}
+
+.icon-fenxiang:before {
+  content: "\e655";
+}
+
+.icon-tianqiyubao:before {
+  content: "\e624";
+}
+
+.icon-shezhi:before {
+  content: "\e60a";
+}
+
+.icon-zhifeiji:before {
+  content: "\e7d5";
+}
+
+.icon-dingwei:before {
+  content: "\e61f";
+}
+
+.icon-xinwen:before {
+  content: "\e607";
+}
+
+.icon-xiangce:before {
+  content: "\e618";
+}
+
+.icon-qiya:before {
+  content: "\e60c";
+}
+
+.icon-fenzu:before {
+  content: "\e620";
+}
