@@ -9,6 +9,14 @@ p{
 	float: right;
 }
 
+.clear-fix::after,.clear-fix::before{
+	content: "";
+	display: table;
+}
+.clear-fix::after{
+	clear: both;
+}
+
 /*定义字体*/
 @font-face {
     font-family: "weather font";
@@ -62,3 +70,11 @@ p{
 .icon-fenzu:before {
   content: "\e620";
 }
+.icon-shuzhixiajiang:before {
+  content: "\e8f9";
+}
+
+.icon-shuzhishangsheng:before {
+  content: "\e8fa";
+}
+
