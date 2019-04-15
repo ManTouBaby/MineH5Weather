@@ -2,13 +2,20 @@
   "main.html": {
     "resources": [
       "subpage/main-subpage-weather.html",
-      "subpage/main-subpage-news.html"
+      "subpage/main-subpage-news.html",
+      "subpage/nav_transparent_native.html"
     ],
     "refer": [
       "subpage/main-subpage-weather.html",
       "subpage/main-subpage-setting.html",
       "subpage/main-subpage-photo.html",
-      "subpage/main-subpage-news.html"
+      "subpage/main-subpage-news.html",
+      "subpage/nav_transparent_native.html"
+    ]
+  },
+  "subpage/main-subpage-weather.html": {
+    "refer": [
+      "subpage/nav_transparent_native.html"
     ]
   }
 }

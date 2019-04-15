@@ -46,154 +46,7 @@
 		},
 		"splashscreen": {
 			"autoclose": false,/*如果为true，程序启动的图片可以自动关闭，如果为false，开发者需要手动关闭*/
-			"waiting": true
-		},
-		"launchwebview": {
-			"bottom": "0px",
-			"background": "#fff",
-			"subNViews": [
-				{
-					"id": "tabBar",
-					"styles": {
-						"bottom": "0px",
-						"left": "0",
-						"height": "50px",
-						"width": "100%",
-						"backgroundColor": "#fff"
-					},
-					"tags": [
-						{
-							"tag": "font",
-							"id": "indexIcon",
-							"text": "\ue624",
-							"position": {
-								"top": "4px",
-								"left": "0",
-								"width": "25%",
-								"height": "24px"
-							},
-							"textStyles": {
-								"fontSrc": "_www/fonts/mine-iconfont.ttf",
-								"align": "center",
-								"size": "24px"
-							}
-						}, {
-							"tag": "font",
-							"id": "indexText",
-							"text": "天气",
-							"position": {
-								"top": "23px",
-								"left": "0",
-								"width": "25%",
-								"height": "24px"
-							},
-							"textStyles": {
-								"align": "center",
-								"size": "10px"
-							}
-						}, {
-							"tag": "font",
-							"id": "newsIcon",
-							"text": "\ue607",
-							"position": {
-								"top": "4px",
-								"left": "20%",
-								"width": "25%",
-								"height": "24px"
-							},
-							"textStyles": {
-								"fontSrc": "_www/fonts/mine-iconfont.ttf",
-								"align": "center",
-								"size": "24px"
-							}
-						}, {
-							"tag": "font",
-							"id": "newsText",
-							"text": "新闻",
-							"position": {
-								"top": "23px",
-								"left": "20%",
-								"width": "25%",
-								"height": "24px"
-							},
-							"textStyles": {
-								"align": "center",
-								"size": "10px"
-							}
-						}, {
-							"tag": "font",
-							"id": "contactIcon",
-							"text": "\ue618",
-							"position": {
-								"top": "4px",
-								"left": "55%",
-								"width": "25%",
-								"height": "24px"
-							},
-							"textStyles": {
-								"fontSrc": "_www/fonts/mine-iconfont.ttf",
-								"align": "center",
-								"size": "24px"
-							}
-						}, {
-							"tag": "font",
-							"id": "contactText",
-							"text": "相册",
-							"position": {
-								"top": "24px",
-								"left": "55%",
-								"width": "25%",
-								"height": "24px"
-							},
-							"textStyles": {
-								"align": "center",
-								"size": "10px"
-							}
-						}, {
-							"tag": "font",
-							"id": "newwindowIcon",
-							"text": "\ue60a",
-							"position": {
-								"top": "4px",
-								"left": "75%",
-								"width": "25%",
-								"height": "24px"
-							},
-							"textStyles": {
-								"fontSrc": "_www/fonts/mine-iconfont.ttf",
-								"align": "center",
-								"size": "24px"
-							}
-						}, {
-							"tag": "font",
-							"id": "newwindowText",
-							"text": "设置",
-							"position": {
-								"top": "24px",
-								"left": "75%",
-								"width": "25%",
-								"height": "24px"
-							},
-							"textStyles": {
-								"align": "center",
-								"size": "10px"
-							}
-						}, {
-							"tag": "rect",
-							"id": "tabBorder",
-							"position": {
-								"top": "0",
-								"left": "0",
-								"width": "100%",
-								"height": "1px"
-							},
-							"rectStyles": {
-								"color": "#ccc"
-							}
-						}
-					]
-				}
-			]
+			"waiting": false
 		},
 		"splashscreen": {
 			"autoclose": true,/*是否自动关闭程序启动界面，true表示应用加载应用入口页面后自动关闭；false则需调plus.navigator.closeSplashscreen()关闭*/
@@ -286,11 +139,19 @@
 			"main.html": {
 				"resources": [
 					"subpage/main-subpage-weather.html",
-					"subpage/main-subpage-news.html"
+					"subpage/main-subpage-news.html",
+					"subpage/nav_transparent_native.html"
 				],
 				"refer": [
 					"subpage/main-subpage-setting.html",
 					"subpage/main-subpage-photo.html"
+				],
+				"priority": 0
+			},
+			"subpage/main-subpage-weather.html": {
+				"resources": [],
+				"refer": [
+					"subpage/nav_transparent_native.html"
 				],
 				"priority": 0
 			}
