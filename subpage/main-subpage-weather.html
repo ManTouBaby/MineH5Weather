@@ -11,7 +11,7 @@
 		<link rel="stylesheet" type="text/css" href="../css/base.css" />
 		<style>
 			/*导航栏设置*/
-			
+
 			#weather-bg {
 				width: 100%;
 				height: 100%;
@@ -19,53 +19,56 @@
 				top: 0px;
 				left: 0px;
 			}
-			
+
 			#commen-bg {
 				width: 100%;
 				height: 100%;
-				background-color: rgba(255, 255, 255, .3);
-				
+				background-color: rgba(0, 0, 0, .3);
 				position: fixed;
 				top: 0px;
 				left: 0px;
 			}
-			
-			#page-content {
+
+			.page-content {
 				width: 100%;
 				z-index: 8;
-				
 				position: fixed;
 				top: 0px;
 				left: 0px;
 			}
-			
+
+			.header-content,
+			.page-content {
+				top: 24px;
+			}
+
 			.header-menu {
 				width: 24px;
 				height: 24px;
 				text-align: center;
 				line-height: 24px;
 			}
-			
+
 			.mui-bar>.mui-icon-bars {
 				color: #FFFFFF;
 			}
-			
+
 			.local-date-container {
 				margin-left: 8px;
 				padding-top: 0.8px;
 			}
-			
+
 			.icon-dingwei {
 				color: #FFFFFF;
 				font-size: 18px;
 			}
-			
+
 			.icon-fenxiang {
 				font-size: 32px;
 				padding: 11px 0;
 				color: #FFFFFF;
 			}
-			
+
 			.weather-news {
 				margin: 8px;
 				padding: 2px;
@@ -75,49 +78,193 @@
 				border-color: #fff;
 				color: #FFF;
 			}
-			
+
 			.weather-date {
 				color: #FFFFFF;
 			}
 			/*天气内容*/
-			.weather-content{
-				
-		
+
+			.weather-content {
+				position: relative;
+				top: 60px;
 				background-color: transparent;
 				color: #FFFFFF;
 			}
-			.temp-count{
-				font:100 120px/120px "微软雅黑";
-				height: 120px;
-			
+
+			.temp-count {
+				display: inline-block;
+				height: 140px;
+				text-align: center;
+				font: 120px/140px "微软雅黑";
 			}
-			.temp-tag{
-				
+
+			.temp-tag {
+				display: inline-block;
+				height: 60px;
+				text-align: center;
+				padding-top: 16px;
+				font: 100 60px/60px "微软雅黑";
 			}
-			
+
+			.weather-notice,
+			.temp-today-range {
+				padding-left: 8px;
+				margin-top: 16px;
+				font-size: 21px;
+			}
+
+			.temp-today-range {
+				margin-top: 24px;
+			}
+
+			.weather-notice>#weather-feel,
+			.temp-today-range>.temp-today-height {
+				margin-left: 24px;
+			}
+
+			.temp-today-detail {
+				margin-top: 32px;
+				padding: 0px 8px;
+			}
+
+			.temp-today-detail-item {
+				position: relative;
+				width: 25%;
+				float: left;
+			}
+
+			.temp-today-detail-item i {
+				position: absolute;
+				top: 0;
+				left: 0;
+				line-height: 40px;
+			}
+
+			.temp-today-detail-item p {
+				padding-left: 32px;
+				color: #fff;
+			}
+
+			.temp-today-hour {
+				margin: 16px 8px 0px;
+				background-color: rgba(255, 255, 255, .3);
+			}
+
+			.today-hour-title {
+				padding: 8px;
+				border-bottom: solid rgba(255, 255, 255, .5) 1px;
+			}
+
+			.today-hour-title span {
+				float: right;
+				font-size: 12px;
+			}
+
+			.today-hour-title span.sun-down {
+				padding-left: 32px;
+			}
+
+			.today-hour-detail {
+				height: 138px;
+			}
 		</style>
 	</head>
 
 	<body>
 		<img id="weather-bg" src="../img/previe_default_themes_4.jpg" />
 		<div id="commen-bg"></div>
-		<div class="page-content">
-			<header class="mui-bar  mui-bar-transparent">
-				<a class="mui-icon-bars mui-icon mui-icon-left-nav mui-pull-left"></a>
-				<div class="local-date-container mui-media-body mui-pull-left">
-					<span class="icon-dingwei" id="local-lable">广州</span>
-					<p class="weather-date"><span>04月12日</span> <span>周五</span> <span>农历三月初八</span></p>
-				</div>
-				<a href="" class="icon-fenxiang mui-pull-right"></a>
-				<a href="" class="weather-news mui-pull-right">新闻</a>
-			</header>
 
-			<div class="mui-content weather-content">
-				<span class="temp-count">18</span>
-				<span class="temp-tag">18</span>
+		<header class="header-content mui-bar  mui-bar-transparent">
+			<a class="mui-icon-bars mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<div class="local-date-container mui-media-body mui-pull-left">
+				<span class="icon-dingwei" id="local-lable">广州</span>
+				<p class="weather-date"><span>04月12日</span> <span>周五</span> <span>农历三月初八</span></p>
 			</div>
-		</div>
+			<a href="" class="icon-fenxiang mui-pull-right"></a>
+			<a href="" class="weather-news mui-pull-right">新闻</a>
+		</header>
 
+		<div class="mui-content weather-content">
+			<div id="temp-current " class="mui-clearfix">
+				<span class="temp-count fl">18</span>
+				<span class="temp-tag fl">°</span>
+			</div>
+			<div class="weather-notice">
+				<span id="weather-lable">小雨</span>
+				<!--天气-->
+				<span id="weather-feel">体感17°</span>
+				<!--体感-->
+			</div>
+
+			<div class="temp-today-range">
+				<span class="icon-shuzhixiajiang temp-today-low">20°</span>
+				<span class="icon-shuzhishangsheng temp-today-height">25°</span>
+			</div>
+			<div class="temp-today-detail clear-fix">
+				<div class="temp-today-detail-item clear-fix">
+					<i class=" icon-eye fl"></i>
+					<p>能见度</p>
+					<p>6.7KM</p>
+				</div>
+				<div class="temp-today-detail-item clear-fix">
+					<i class=" icon-zhifeiji fl"></i>
+					<p>东南风</p>
+					<p>3级</p>
+				</div>
+				<div class="temp-today-detail-item clear-fix">
+					<i class="icon-fenzu fl"></i>
+					<p>湿度</p>
+					<p>99%</p>
+				</div>
+				<div class="temp-today-detail-item clear-fix">
+					<i class=" icon-qiya fl"></i>
+					<p>气压</p>
+					<p>1006hPa</p>
+				</div>
+			</div>
+
+			<div class="temp-today-hour">
+				<div class="today-hour-title">
+					24小时预报
+					<span class="sun-down">日落18:46</span class="sun-down">
+						<span class="sun-up">日出06:11</span class="sun-up">
+					</div>
+					<div class="today-hour-detail">
+
+					</div>
+				</div>
+				<div class="temp-today-hour">
+					<div class="today-hour-title">
+						24小时预报
+						<span class="sun-down">日落18:46</span class="sun-down">
+						<span class="sun-up">日出06:11</span class="sun-up">
+					</div>
+					<div class="today-hour-detail">
+
+					</div>
+				</div>
+				<div class="temp-today-hour">
+					<div class="today-hour-title">
+						24小时预报
+						<span class="sun-down">日落18:46</span class="sun-down">
+						<span class="sun-up">日出06:11</span class="sun-up">
+					</div>
+					<div class="today-hour-detail">
+
+					</div>
+				</div>
+				<div class="temp-today-hour">
+					<div class="today-hour-title">
+						24小时预报
+						<span class="sun-down">日落18:46</span class="sun-down">
+						<span class="sun-up">日出06:11</span class="sun-up">
+					</div>
+					<div class="today-hour-detail">
+
+					</div>
+				</div>
+				</div>
+			</div>
 		<script src="../js/mui.min.js"></script>
 		<script type="text/javascript">
 			mui.init()
@@ -128,7 +275,7 @@
 				//获取系统状态栏高度
 				var StatusbarHeight = plus.navigator.getStatusbarHeight();
 				console.log(StatusbarHeight);
-				/*var headerH = mui('.mui-bar-nav').eq(0).height();
+				/*var headerH = mui('#page-content').height();
 				console.log(headerH);
 				mui('.mui-bar-nav').eq(0).css({
 					height: (headerH + StatusbarHeight) + 'px',
