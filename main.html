@@ -3,28 +3,162 @@
 
 	<head>
 		<meta charset="utf-8">
+		<!--<meta http-equiv="Access-Control-Allow-Origin" content="">
+		<meta http-equiv="content-security-policy">-->
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title></title>
-		<script src="js/mui.min.js"></script>
-		<link href="css/mui.min.css" rel="stylesheet" />
-
+		<script src="js/mui.js"></script>
+		<link href="css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/base.css" />
+		<link rel="stylesheet" href="css/main.css" />
 	</head>
 
 	<body>
+		<img id="commen-bg" src="img/snow_bg_blur.png" />
+		<header class="header-content">
+			<div class="header-main clear-fix">
+				<a class="mui-icon-bars mui-icon mui-icon-left-nav mui-pull-left"></a>
+				<div class="local-date-container mui-media-body mui-pull-left">
+					<span class="icon-dingwei" id="local-lable">广州</span>
+					<p class="weather-date">04月12日 周五 农历三月初八</p>
+				</div>
+				<a href="" class="icon-fenxiang mui-pull-right"></a>
+				<a href="nav_transparent_native.html" class="weather-news mui-pull-right">新闻</a>
+			</div>
+
+		</header>
+
+		<div class="mui-content weather-content">
+			<div id="temp-current " class="mui-clearfix">
+				<span class="temp-count fl">18°</span>
+			</div>
+			<div class="weather-notice">
+				<span id="weather-lable">小雨</span>
+				<!--天气-->
+				<span id="weather-feel">体感17°</span>
+				<!--体感-->
+			</div>
+
+			<div class="temp-today-range">
+				<span class="icon-shuzhixiajiang temp-today-low">20°</span>
+				<span class="icon-shuzhishangsheng temp-today-height">25°</span>
+			</div>
+
+			<div class="temp-today-detail clear-fix mui-row">
+				<div class="temp-today-detail-item clear-fix mui-col-xs-3">
+					<img src="icon/main_visible.png" class="fl" />
+					<p>能见度</p>
+					<p id="main-visible">6.7KM</p>
+				</div>
+				<div class="temp-today-detail-item clear-fix mui-col-xs-3">
+					<img src="icon/main_wind.png" class="fl" />
+					<p id="main_wind_type">东南风</p>
+					<p id="main-wind">3级</p>
+				</div>
+				<div class="temp-today-detail-item clear-fix mui-col-xs-3">
+					<img src="icon/main_humidity.png" class="fl" />
+					<p>湿度</p>
+					<p id="main-humidity">99%</p>
+				</div>
+				<div class="temp-today-detail-item clear-fix mui-col-xs-3">
+					<img src="icon/main_pressure.png" class="fl" />
+					<p>气压</p>
+					<p id="main-pressure">1006hPa</p>
+				</div>
+			</div>
+
+			<div class="temp-today-hour">
+				<div class="today-hour-title">
+					24小时预报
+					<span class="sun-down">日落18:46</span class="sun-down">
+						<span class="sun-up">日出06:11</span class="sun-up">
+					</div>
+					<div class="today-hour-detail">
+
+					</div>
+				</div>
+				<div class="temp-today-hour">
+					<div class="today-hour-title">
+						15天预报
+						<!--<span class="sun-down">日落18:46</span class="sun-down">
+						<span class="sun-up">日出06:11</span class="sun-up">-->
+					</div>
+					<div class="today-hour-detail">
+						
+					</div>
+				</div>
+				
+				
+			</div>
+		</div>
 
 		<script type="text/javascript" src="js/main-page-utils.js"></script>
+		<script type="text/javascript" src="js/date-utils.js" ></script>
 		<script type="text/javascript" charset="utf-8">
-			mui.init({
-				subpages: [{
-					url: "subpage/main-subpage-weather.html", //子页面HTML地址，支持本地地址和网络地址
-					id: "subpage/main-subpage-weaher.html", //子页面标志
-					styles: {
-						top: '0px', //mui标题栏默认高度为45px；
-						bottom: '0px' //默认为0px，可不定义；
-					}
-				}]
-			});
+		mui.init()
+		function plusReady() {
+				// 设置系统状态栏背景为红色				
+				plus.navigator.setStatusBarBackground("#4877B0");
+			}
+			if(window.plus) {
+				plusReady();
+			} else {
+				document.addEventListener("plusready", plusReady, false);
+			}  
 			
+		var weatherDate =document.getElementsByClassName("weather-date")[0];
+		var tempCount = document.getElementsByClassName("temp-count")[0];
+		var weatherLable = document.getElementById("weather-lable");
+		var weatherFeel =document.getElementById("weather-feel");
+		var todayWind =document.getElementById("main-wind");
+		var todayWindType = document.getElementById("main_wind_type");
+		var todayPressure =document.getElementById("main-pressure");
+		var todayVisible = document.getElementById("main-visible");
+		var todayHumidity = document.getElementById("main-humidity");
+		var todayTempLow = document.getElementsByClassName("temp-today-low")[0];
+		var todayTempHeight = document.getElementsByClassName("temp-today-height")[0];
+		
+		
+		var lunarDate = DateUtil.getLunar();//获取农历日期
+		var weekDate = DateUtil.getWeekDate();//获取星期
+		var currentDate = DateUtil.getCurrentDate("MM月dd日");
+		var dateStr = currentDate+" "+weekDate+" 农历"+lunarDate;
+		
+		weatherDate.innerHTML = dateStr;
+		console.log(dateStr)	
+		
+		
+		mui.ajax('http://api.weather.nineton.cn/%2FIndex%2FWeatherForecast',{
+			data:{
+				code:'2DF604745DDD822C9A19DA5587C374DE3F63FC0271BB6EB8640FA4A20447D4436800DCCA030BB86BB21942723F8FB998C4B60F3D331B8B39C5CD68D286324219094AECD77D8AF7B8B8E38324E25D005CEDFE379FF587251B430C0C63952952F5'
+			},
+			dataType:'jsonp',//服务器返回json格式数据
+			jsonp: "jsoncallback",
+			type:'post',//HTTP请求类型
+			crossDomain:true,
+			success:function(result){
+			var obj;
+             //判断是否是json格式
+             if((typeof result=='object')&&result.constructor==Object){
+                 obj=result;
+             }else{
+                 obj  = eval("("+result+")");
+             }
+             var nowWeather = obj.data.weatherNow.now;
+             tempCount.innerHTML =nowWeather.temperature+"°";
+             weatherLable.innerHTML = nowWeather.text;
+             weatherFeel.innerHTML ="体感"+ nowWeather.feels_like+"°";
+             
+             todayWindType.innerHTML = nowWeather.wind_direction+"风";
+             todayVisible.innerHTML = nowWeather.visibility+"KM";
+             todayWind.innerHTML=nowWeather.wind_scale+"级";
+             todayHumidity.innerHTML = nowWeather.humidity+"%";
+             todayPressure.innerHTML = nowWeather.pressure+"hPa";
+             
+             
+			console.log(nowWeather);
+			}
+		})
 		</script>
 	</body>
 

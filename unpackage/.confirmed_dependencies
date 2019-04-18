@@ -17,5 +17,13 @@
     "refer": [
       "subpage/nav_transparent_native.html"
     ]
+  },
+  "home.html": {
+    "resources": [
+      "subpage/main-subpage-weather.html"
+    ],
+    "refer": [
+      "subpage/main-subpage-weather.html"
+    ]
   }
 }

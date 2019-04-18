@@ -9,172 +9,14 @@
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<link href="../css/mui.min.css" rel="stylesheet" />
 		<link rel="stylesheet" type="text/css" href="../css/base.css" />
-		<style>
-			/*导航栏设置*/
-
-			#weather-bg {
-				width: 100%;
-				height: 100%;
-				position: fixed;
-				top: 0px;
-				left: 0px;
-			}
-
-			#commen-bg {
-				width: 100%;
-				height: 100%;
-				background-color: rgba(0, 0, 0, .3);
-				position: fixed;
-				top: 0px;
-				left: 0px;
-			}
-
-			.page-content {
-				width: 100%;
-				z-index: 8;
-				position: fixed;
-				top: 0px;
-				left: 0px;
-			}
-
-			.header-content,
-			.page-content {
-				top: 24px;
-			}
-
-			.header-menu {
-				width: 24px;
-				height: 24px;
-				text-align: center;
-				line-height: 24px;
-			}
-
-			.mui-bar>.mui-icon-bars {
-				color: #FFFFFF;
-			}
-
-			.local-date-container {
-				margin-left: 8px;
-				padding-top: 0.8px;
-			}
-
-			.icon-dingwei {
-				color: #FFFFFF;
-				font-size: 18px;
-			}
-
-			.icon-fenxiang {
-				font-size: 32px;
-				padding: 11px 0;
-				color: #FFFFFF;
-			}
-
-			.weather-news {
-				margin: 8px;
-				padding: 2px;
-				border: 1px solid;
-				font-family: "宋体";
-				border-radius: 4px;
-				border-color: #fff;
-				color: #FFF;
-			}
-
-			.weather-date {
-				color: #FFFFFF;
-			}
-			/*天气内容*/
-
-			.weather-content {
-				position: relative;
-				top: 60px;
-				background-color: transparent;
-				color: #FFFFFF;
-			}
-
-			.temp-count {
-				display: inline-block;
-				height: 140px;
-				text-align: center;
-				font: 120px/140px "微软雅黑";
-			}
-
-			.temp-tag {
-				display: inline-block;
-				height: 60px;
-				text-align: center;
-				padding-top: 16px;
-				font: 100 60px/60px "微软雅黑";
-			}
-
-			.weather-notice,
-			.temp-today-range {
-				padding-left: 8px;
-				margin-top: 16px;
-				font-size: 21px;
-			}
-
-			.temp-today-range {
-				margin-top: 24px;
-			}
-
-			.weather-notice>#weather-feel,
-			.temp-today-range>.temp-today-height {
-				margin-left: 24px;
-			}
-
-			.temp-today-detail {
-				margin-top: 32px;
-				padding: 0px 8px;
-			}
-
-			.temp-today-detail-item {
-				position: relative;
-				width: 25%;
-				float: left;
-			}
-
-			.temp-today-detail-item i {
-				position: absolute;
-				top: 0;
-				left: 0;
-				line-height: 40px;
-			}
-
-			.temp-today-detail-item p {
-				padding-left: 32px;
-				color: #fff;
-			}
-
-			.temp-today-hour {
-				margin: 16px 8px 0px;
-				background-color: rgba(255, 255, 255, .3);
-			}
-
-			.today-hour-title {
-				padding: 8px;
-				border-bottom: solid rgba(255, 255, 255, .5) 1px;
-			}
-
-			.today-hour-title span {
-				float: right;
-				font-size: 12px;
-			}
-
-			.today-hour-title span.sun-down {
-				padding-left: 32px;
-			}
-
-			.today-hour-detail {
-				height: 138px;
-			}
-		</style>
+		<link rel="stylesheet" href="../css/main.css" />
 	</head>
 
 	<body>
 		<img id="weather-bg" src="../img/sunshine_day_bg_blur.png" />
 		<div id="commen-bg"></div>
 
-		<header class="header-content mui-bar ">
+		<!--<header class="header-content mui-bar mui-bar-transparent">
 			<a class="mui-icon-bars mui-icon mui-icon-left-nav mui-pull-left"></a>
 			<div class="local-date-container mui-media-body mui-pull-left">
 				<span class="icon-dingwei" id="local-lable">广州</span>
@@ -182,7 +24,7 @@
 			</div>
 			<a href="" class="icon-fenxiang mui-pull-right"></a>
 			<a href="nav_transparent_native.html" class="weather-news mui-pull-right">新闻</a>
-		</header>
+		</header>-->
 
 		<div class="mui-content weather-content">
 			<div id="temp-current " class="mui-clearfix">
@@ -269,18 +111,7 @@
 		<script type="text/javascript">
 			mui.init()
 			mui.plusReady(function() {
-				//判断是否支持沉浸式
-				var isImmersedStatusbar = plus.navigator.isImmersedStatusbar();
-				console.log(isImmersedStatusbar);
-				//获取系统状态栏高度
-				var StatusbarHeight = plus.navigator.getStatusbarHeight();
-				console.log(StatusbarHeight);
-				/*var headerH = mui('#page-content').height();
-				console.log(headerH);
-				mui('.mui-bar-nav').eq(0).css({
-					height: (headerH + StatusbarHeight) + 'px',
-					'paddingTop': StatusbarHeight + 'px'
-				});*/
+				
 			});
 		</script>
 	</body>
