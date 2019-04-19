@@ -1,175 +1,228 @@
-	body {
-		background-color: #7FA1AD;
-	}
-	#commen-bg{
-		position: fixed;
-		top: 0px;
-		left: 0px;
-		
-	}
-	
-	.header-content {
-		height: 48px;
-		width: 100%;
-		background-color: #4877B0;
-		
-		position: fixed;
-		top: 0px;
-		left: 0px;
-		z-index: 10;
-	}
-	
-	
-	.header-main>.mui-icon-bars {
-		color: #fff;
-		padding: 12px;
-	}
-	
-	.header-main>.weather-news {
-		display: block;
-		height: 24px;
-		font-size: 12px;
-		padding: 2px;
-		border: 1px solid;
-		font-family: "宋体";
-		border-radius: 4px;
-		border-color: #fff;
-		color: #FFF;
-		margin: 12px 0;
-	}
-	
-	.header-main>.icon-fenxiang {
-		display: block;
-		/* height: 24px; */
-		font-size: 24px;
-		/* width: 24px; */
-		padding: 13px;
-		color: #FFFFFF;
-	}
-	
-	.page-content {
-		width: 100%;
-		z-index: 8;
-		position: fixed;
-		top: 0px;
-		left: 0px;
-	}
-	
+#commen-bg {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+}
 
-	
-	.header-menu {
-		width: 24px;
-		height: 24px;
-		text-align: center;
-		line-height: 24px;
-	}
-	
-	.mui-bar>.mui-icon-bars {
-		color: #FFFFFF;
-	}
-	
-	
-	.local-date-container>.icon-dingwei {
-		display: block;
-		height: 26px;
-		line-height: 26px;
-	}
-	
-	.local-date-container>.weather-date {
-		height: 22px;
-		line-height: 22px;
-	}
-	
-	.icon-dingwei {
-		color: #FFFFFF;
-		font-size: 16px;
-	}
-	
-	.weather-date {
-		color: #bbb;
-	}
-	/*天气内容*/
-	
-	.weather-content {
-		position: relative;
-		top: 48px;
-		background-color: transparent;
-		color: #FFFFFF;
-	}
-	
-	.temp-count {
-		display: inline-block;
-		height: 140px;
-		text-align: center;
-		font: 120px/140px "宋体";
-	}
-	
-	
-	.weather-notice,
-	.temp-today-range {
-		padding-left: 12px;
-		margin-top: 16px;
-		font-size: 21px;
-	}
-	
-	.temp-today-range {
-		margin-top: 24px;
-	}
-	
-	.weather-notice>#weather-feel,
-	.temp-today-range>.temp-today-height {
-		margin-left: 24px;
-	}
-	
-	.temp-today-detail {
-		margin-top: 32px;
-		padding: 0px 8px;
-	}
-	
-	.temp-today-detail-item {
-		position: relative;
-		width: 25%;
-		float: left;
-	}
-	.temp-today-detail-item img{
-		width: 24px;
-		height: 24px;
-		margin-top: 6px;
-	}
-	.temp-today-detail-item i {
-		position: absolute;
-		top: 0;
-		left: 0;
-		line-height: 40px;
-	}
-	
-	.temp-today-detail-item p {
-		padding-left: 32px;
-		color: #fff;
-	}
-	
-	.temp-today-hour {
-		margin: 16px 8px 0px;
-		background-color: rgba(255, 255, 255, .3);
-	}
-	
-	.today-hour-title {
-		/* padding: 8px; */
-		line-height: 38px;
-		padding-left: 8px;
-		padding-right: 8px;
-		border-bottom: solid rgba(255, 255, 255, .5) 1px;
-	}
-	
-	.today-hour-title span {
-		float: right;
-		font-size: 12px;
-	}
-	
-	.today-hour-title span.sun-down {
-		padding-left: 32px;
-	}
-	
-	.today-hour-detail {
-		height: 138px;
-	}
+.header-content {
+	height: 48px;
+	width: 100%;
+	background-color: #4877B0;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	z-index: 10;
+}
+
+.header-main>.mui-icon-bars {
+	color: #fff;
+	padding: 12px;
+}
+
+.header-main>.weather-news {
+	display: block;
+	height: 24px;
+	font-size: 12px;
+	padding: 2px;
+	border: 1px solid;
+	font-family: "宋体";
+	border-radius: 4px;
+	border-color: #fff;
+	color: #FFF;
+	margin: 12px 0;
+}
+
+.header-main>.icon-fenxiang {
+	display: block;
+	/* height: 24px; */
+	font-size: 24px;
+	/* width: 24px; */
+	padding: 13px;
+	color: #FFFFFF;
+}
+
+.page-content {
+	width: 100%;
+	z-index: 8;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+}
+
+.header-menu {
+	width: 24px;
+	height: 24px;
+	text-align: center;
+	line-height: 24px;
+}
+
+.mui-bar>.mui-icon-bars {
+	color: #FFFFFF;
+}
+
+.local-date-container>.icon-dingwei {
+	display: block;
+	height: 26px;
+	line-height: 26px;
+}
+
+.local-date-container>.weather-date {
+	height: 22px;
+	line-height: 22px;
+}
+
+.icon-dingwei {
+	color: #FFFFFF;
+	font-size: 16px;
+}
+
+.weather-date {
+	color: #bbb;
+}
+
+
+/*天气内容*/
+
+.weather-content {
+	position: relative;
+	top: 48px;
+	background-color: transparent;
+	color: #FFFFFF;
+}
+
+.temp-count {
+	display: inline-block;
+	height: 140px;
+	text-align: center;
+	font: 120px/140px "宋体";
+}
+
+.weather-notice,
+.temp-today-range {
+	padding-left: 12px;
+	margin-top: 16px;
+	font-size: 21px;
+}
+
+.temp-today-range {
+	margin-top: 24px;
+}
+
+.temp-today-low,.temp-today-height,#weather-lable,#weather-feel{
+	font-size: 17px;
+}
+.weather-notice>#weather-feel,
+.temp-today-range>.temp-today-height {
+	margin-left: 24px;
+}
+
+.temp-today-detail {
+	margin-top: 32px;
+	padding: 0px 8px;
+}
+
+.temp-today-detail-item {
+	position: relative;
+	width: 25%;
+	float: left;
+}
+
+.temp-today-detail-item img {
+	width: 24px;
+	height: 24px;
+	margin-top: 6px;
+}
+
+.temp-today-detail-item i {
+	position: absolute;
+	top: 0;
+	left: 0;
+	line-height: 40px;
+}
+
+.temp-today-detail-item p {
+	padding-left: 32px;
+	color: #fff;
+}
+
+.temp-today-hour {
+	margin: 16px 8px 0px;
+	background-color: rgba(255, 255, 255, .2);
+}
+
+.today-hour-title {
+	/* padding: 8px; */
+	line-height: 38px;
+	padding-left: 8px;
+	padding-right: 8px;
+	border-bottom: solid rgba(255, 255, 255, .1) 1px;
+}
+
+.today-hour-title span {
+	float: right;
+	font-size: 12px;
+}
+
+.today-hour-title span.sun-down {
+	padding-left: 32px;
+}
+
+.today-hour-detail {
+	height: 138px;
+}
+
+
+/*15天气预报*/
+
+.date-list-container>.mui-table-view,
+.date-list-container .date-list-value,
+.mui-table-view-cell.mui-active,
+.date-list-container .mui-table-view-cell .date-content {
+	background-color: transparent;
+}
+
+.mui-table-view-cell.mui-active>.date-list-value {
+	background-color: rgba(255, 255, 255, .3);
+}
+
+.date-list-container .date-list-value {
+	border-bottom: solid rgba(255, 255, 255, .1) 1px;
+}
+
+.date-list-container .date-list-value p,
+.date-list-container .mui-table-view-cell .date-content p {
+	color: #FFFFFF;
+}
+
+.date-item-value,
+.date-item-weather,
+.date-item-weather-h,
+.date-item-weather-l {
+	height: 42px;
+	line-height: 42px;
+	font-size: 15px;
+}
+
+.date-item-weather-h{
+	margin-right: 8px;
+}
+
+.date-item-tag {
+	width: 36px;
+	height: 36px;
+	margin-right: 6px;
+	margin-left: 36px;
+	margin-top: 3px;
+}
+/*15天气预报详情*/
+.date-content .mui-row div .date-detail-value{
+	font-size: 15px;
+}
+.date-content .mui-row div .date-detail-key{
+	color: rgba(255, 255, 255, .3);
+	font-size: 13px;
+	margin-top: 4px;
+}
+.date-content>div+div{
+	margin-top: 18px;
+}

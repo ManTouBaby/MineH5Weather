@@ -40,8 +40,8 @@
 			</div>
 
 			<div class="temp-today-range">
-				<span class="icon-shuzhixiajiang temp-today-low">20°</span>
-				<span class="icon-shuzhishangsheng temp-today-height">25°</span>
+				<span class="temp-today-low">最低温  20°</span>
+				<span class="temp-today-height">最高温  25°</span>
 			</div>
 
 			<div class="temp-today-detail clear-fix mui-row">
@@ -83,83 +83,166 @@
 						<!--<span class="sun-down">日落18:46</span class="sun-down">
 						<span class="sun-up">日出06:11</span class="sun-up">-->
 					</div>
-					<div class="today-hour-detail">
+					<div class="date-list-container">
 						
 					</div>
 				</div>
-				
-				
 			</div>
 		</div>
 
+
 		<script type="text/javascript" src="js/main-page-utils.js"></script>
 		<script type="text/javascript" src="js/date-utils.js" ></script>
-		<script type="text/javascript" charset="utf-8">
-		mui.init()
-		function plusReady() {
-				// 设置系统状态栏背景为红色				
-				plus.navigator.setStatusBarBackground("#4877B0");
-			}
-			if(window.plus) {
-				plusReady();
-			} else {
-				document.addEventListener("plusready", plusReady, false);
-			}  
-			
-		var weatherDate =document.getElementsByClassName("weather-date")[0];
-		var tempCount = document.getElementsByClassName("temp-count")[0];
-		var weatherLable = document.getElementById("weather-lable");
-		var weatherFeel =document.getElementById("weather-feel");
-		var todayWind =document.getElementById("main-wind");
-		var todayWindType = document.getElementById("main_wind_type");
-		var todayPressure =document.getElementById("main-pressure");
-		var todayVisible = document.getElementById("main-visible");
-		var todayHumidity = document.getElementById("main-humidity");
-		var todayTempLow = document.getElementsByClassName("temp-today-low")[0];
-		var todayTempHeight = document.getElementsByClassName("temp-today-height")[0];
-		
-		
-		var lunarDate = DateUtil.getLunar();//获取农历日期
-		var weekDate = DateUtil.getWeekDate();//获取星期
-		var currentDate = DateUtil.getCurrentDate("MM月dd日");
-		var dateStr = currentDate+" "+weekDate+" 农历"+lunarDate;
-		
-		weatherDate.innerHTML = dateStr;
-		console.log(dateStr)	
-		
-		
-		mui.ajax('http://api.weather.nineton.cn/%2FIndex%2FWeatherForecast',{
-			data:{
-				code:'2DF604745DDD822C9A19DA5587C374DE3F63FC0271BB6EB8640FA4A20447D4436800DCCA030BB86BB21942723F8FB998C4B60F3D331B8B39C5CD68D286324219094AECD77D8AF7B8B8E38324E25D005CEDFE379FF587251B430C0C63952952F5'
-			},
-			dataType:'jsonp',//服务器返回json格式数据
-			jsonp: "jsoncallback",
-			type:'post',//HTTP请求类型
-			crossDomain:true,
-			success:function(result){
-			var obj;
-             //判断是否是json格式
-             if((typeof result=='object')&&result.constructor==Object){
-                 obj=result;
-             }else{
-                 obj  = eval("("+result+")");
-             }
-             var nowWeather = obj.data.weatherNow.now;
-             tempCount.innerHTML =nowWeather.temperature+"°";
-             weatherLable.innerHTML = nowWeather.text;
-             weatherFeel.innerHTML ="体感"+ nowWeather.feels_like+"°";
-             
-             todayWindType.innerHTML = nowWeather.wind_direction+"风";
-             todayVisible.innerHTML = nowWeather.visibility+"KM";
-             todayWind.innerHTML=nowWeather.wind_scale+"级";
-             todayHumidity.innerHTML = nowWeather.humidity+"%";
-             todayPressure.innerHTML = nowWeather.pressure+"hPa";
-             
-             
-			console.log(nowWeather);
-			}
-		})
-		</script>
+		<script type="text/javascript" src="js/template-web.js" ></script>
+		<script  id="weather-view" type="text/html">
+			<ul class="mui-table-view"> 
+				{{each dateList as value i}}
+        			<li class="mui-table-view-cell mui-collapse">
+            			<a class="date-list-value" href="#">
+            				<p class="clear-fix">
+            					<span class="date-item-value fl">{{value.date}}</span>
+					<img class="date-item-tag fl" src="icon/{{value.imgSrc}}" />
+					<span class="date-item-weather fl">{{value.text}}</span>
+					<span class="date-item-weather-l fr">{{value.low}}°</span>
+					<span class="date-item-weather-h fr">{{value.high}}°</span>
+					</p>
+					</a>
+					<div class="date-content mui-collapse-content">
+						<div class="mui-row">
+							<div class="mui-col-xs-4">
+								<p class="mui-text-center date-detail-value">未知</p>
+								<p class="mui-text-center date-detail-key">空气质量</p>
+							</div>
+							<div class="mui-col-xs-4">
+								<p class="mui-text-center date-detail-value">{{value.wind_direction}} {{value.wind_scale}}级</p>
+								<p class="mui-text-center date-detail-key">风力</p>
+							</div>
+							<div class="mui-col-xs-4">
+								<p class="mui-text-center date-detail-value">{{value.wind_speed}}KM/h</p>
+								<p class="mui-text-center date-detail-key">风速</p>
+							</div>
+						</div>
+						<div class="mui-row">
+							<div class="mui-col-xs-4">
+								<p class="mui-text-center date-detail-value">06:06</p>
+								<p class="mui-text-center date-detail-key">日出</p>
+							</div>
+							<div class="mui-col-xs-4">
+								<p class="mui-text-center date-detail-value">18:49</p>
+								<p class="mui-text-center date-detail-key">日落</p>
+							</div>
+						</div>
+					</div>
+					</li>
+					{{/each}}
+					</ul>
+					</script>
+					<script type="text/javascript" charset="utf-8">
+						var main, menu, mask = mui.createMask(_closeMenu);
+						var showMenu = false,
+							mode = 'main-move';
+
+						mui.init()
+
+						function plusReady() {
+							// 设置系统状态栏背景为红色				
+							plus.navigator.setStatusBarBackground("#4877B0");
+							//创建侧边导航
+							main = plus.webview.currentWebview();
+							//setTimeout的目的是等待窗体动画结束后，再执行create webview操作，避免资源竞争，导致窗口动画不流畅；
+							setTimeout(function() {
+								//侧滑菜单默认隐藏，这样可以节省内存；
+								menu = mui.preload({
+									id: 'offcanvas-drag-right-plus-menu',
+									url: 'offcanvas-drag-right-plus-menu.html',
+									styles: {
+										left: 0,
+										width: '70%',
+										zindex: 9997
+									}
+								});
+							}, 300);
+						}
+
+						if(window.plus) {
+							plusReady();
+						} else {
+							document.addEventListener("plusready", plusReady, false);
+						}
+
+						var weatherDate = document.getElementsByClassName("weather-date")[0];
+						var tempCount = document.getElementsByClassName("temp-count")[0];
+						var weatherLable = document.getElementById("weather-lable");
+						var weatherFeel = document.getElementById("weather-feel");
+						var todayWind = document.getElementById("main-wind");
+						var todayWindType = document.getElementById("main_wind_type");
+						var todayPressure = document.getElementById("main-pressure");
+						var todayVisible = document.getElementById("main-visible");
+						var todayHumidity = document.getElementById("main-humidity");
+						var todayTempLow = document.getElementsByClassName("temp-today-low")[0];
+						var todayTempHeight = document.getElementsByClassName("temp-today-height")[0];
+						var dateListContainer = document.getElementsByClassName("date-list-container")[0];
+
+						var lunarDate = DateUtil.getLunar(); //获取农历日期
+						var weekDate = DateUtil.getWeekDate(); //获取星期
+						var currentDate = DateUtil.getCurrentDate("MM月dd日");
+						var dateStr = currentDate + " " + weekDate + " 农历" + lunarDate;
+
+						weatherDate.innerHTML = dateStr;
+						console.log(dateStr)
+
+						mui.ajax('http://api.weather.nineton.cn/%2FIndex%2FWeatherForecast', {
+							data: {
+								code: '2DF604745DDD822C9A19DA5587C374DE3F63FC0271BB6EB8640FA4A20447D4436800DCCA030BB86BB21942723F8FB998C4B60F3D331B8B39C5CD68D286324219094AECD77D8AF7B8B8E38324E25D005CEDFE379FF587251B430C0C63952952F5'
+							},
+							dataType: 'jsonp', //服务器返回json格式数据
+							jsonp: "jsoncallback",
+							type: 'post', //HTTP请求类型
+							crossDomain: true,
+							success: function(result) {
+								var obj;
+								//判断是否是json格式
+								if((typeof result == 'object') && result.constructor == Object) {
+									obj = result;
+								} else {
+									obj = eval("(" + result + ")");
+								}
+								var nowWeather = obj.data.weatherNow.now;
+								var weatherDatelist = obj.data.dailyWeather.daily;
+								for(var i = 0; i < weatherDatelist.length; i++) {
+									var item = weatherDatelist[i];
+									var week = DateUtil.getWeekDate(item.date);
+									var weekString = DateUtil.getDateString(item.date);
+
+									item.imgSrc = "w_icon_" + item.code_day + ".png";
+									if(item.text_day == item.text_night) {
+										item.text = item.text_day;
+									} else {
+										item.text = item.text_day + "转" + item.text_night;
+									}
+									item.date = weekString + " " + item.date.substr(5).replace('-', '/');
+								}
+
+								var dateList = {
+									dateList: weatherDatelist
+								};
+								var html = template('weather-view', dateList);
+								dateListContainer.innerHTML = html;
+
+								tempCount.innerHTML = nowWeather.temperature + "°";
+								weatherLable.innerHTML = nowWeather.text;
+								weatherFeel.innerHTML = "体感" + nowWeather.feels_like + "°";
+
+								todayWindType.innerHTML = nowWeather.wind_direction + "风";
+								todayVisible.innerHTML = nowWeather.visibility + "KM";
+								todayWind.innerHTML = nowWeather.wind_scale + "级";
+								todayHumidity.innerHTML = nowWeather.humidity + "%";
+								todayPressure.innerHTML = nowWeather.pressure + "hPa";
+
+								console.log(nowWeather);
+							}
+						})
+					</script>
 	</body>
 
 </html>

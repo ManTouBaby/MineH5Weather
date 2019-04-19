@@ -23,8 +23,39 @@ var DateUtil = {
 		return DateUtil.GetLunarDay(yy, mm, dd);
 	},
 
-	getWeekDate: function() {
+	/*判断一个日期是昨天、今天、明天还是后天*/
+	getDateString: function(dateString) {
 		var date = new Date();
+		var year = date.getFullYear();
+		var month = date.getMonth();
+		var day = date.getDay();
+
+		var targeDate = new Date(dateString);
+		var iday = parseInt(targeDate - date) / 1000 / 60 / 60 / 24;
+
+		var dateStr;
+		if(iday <= -1) {
+			dateStr = "昨天";
+		} else if(iday <= 0) {
+			dateStr = "今天";
+		} else if(iday<=1){
+			dateStr="明天";
+		}else if(iday<=2){
+			dateStr="后天";
+		}else{
+			dateStr = DateUtil.getWeekDate(dateString);
+		}
+		return dateStr;
+	},
+
+	/*获取礼拜*/
+	getWeekDate: function(dateString) {
+		var date;
+		if(dateString) {
+			date = new Date(dateString);
+		} else {
+			date = new Date();
+		}
 		var weekday = new Array(7);
 		weekday[0] = '周日';
 		weekday[1] = '周一';
@@ -54,10 +85,6 @@ var DateUtil = {
 			if(new RegExp("(" + k + ")").test(fmt))
 				fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
 		return fmt;
-	},
-
-	getDate: function() {
-		return new Date();
 	},
 
 	GetBit: function(m, n) {

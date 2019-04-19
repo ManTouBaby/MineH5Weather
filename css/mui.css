@@ -284,10 +284,8 @@ body
     font-family: 'Helvetica Neue', Helvetica, sans-serif;
     font-size: 17px;
     line-height: 21px;
-
     color: #000;
     background-color: #efeff4;
-
     -webkit-overflow-scrolling: touch;
 }
 
@@ -2626,17 +2624,13 @@ input[type='submit']:enabled:active, input[type='submit'].mui-active:enabled,
 .mui-table-view-cell.mui-collapse .mui-collapse-content
 {
     position: relative;
-
     display: none;
     overflow: hidden;
-
     margin: 11px -15px -11px;
     padding: 8px 15px;
-
     -webkit-transition: height .35s ease;
-         -o-transition: height .35s ease;
-            transition: height .35s ease;
-
+    -o-transition: height .35s ease;
+    transition: height .35s ease;
     background: white;
 }
 .mui-table-view-cell.mui-collapse .mui-collapse-content > .mui-input-group, .mui-table-view-cell.mui-collapse .mui-collapse-content > .mui-slider
