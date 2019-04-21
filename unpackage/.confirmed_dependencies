@@ -10,7 +10,8 @@
       "subpage/main-subpage-setting.html",
       "subpage/main-subpage-photo.html",
       "subpage/main-subpage-news.html",
-      "subpage/nav_transparent_native.html"
+      "subpage/nav_transparent_native.html",
+      "main-menu.html"
     ]
   },
   "subpage/main-subpage-weather.html": {

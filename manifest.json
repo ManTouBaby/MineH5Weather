@@ -44,7 +44,10 @@
 		}
 	},
 	"plus": {
-	
+		"statusbar": {
+			"immersed": "supportedDevice",
+			"style": "dark"
+		},
 		"splashscreen": {
 			"autoclose": true,/*是否自动关闭程序启动界面，true表示应用加载应用入口页面后自动关闭；false则需调plus.navigator.closeSplashscreen()关闭*/
 			"waiting": true
@@ -169,7 +172,8 @@
 				],
 				"refer": [
 					"subpage/main-subpage-setting.html",
-					"subpage/main-subpage-photo.html"
+					"subpage/main-subpage-photo.html",
+					"main-menu.html"
 				],
 				"priority": 0
 			},

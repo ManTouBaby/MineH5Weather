@@ -1,3 +1,7 @@
+.weather-header{
+	padding-top: 24px;
+}
+
 #commen-bg {
 	position: fixed;
 	top: 0px;
@@ -5,7 +9,7 @@
 }
 
 .header-content {
-	height: 48px;
+	height: 72px;
 	width: 100%;
 	background-color: #4877B0;
 	position: fixed;
@@ -85,7 +89,7 @@
 
 .weather-content {
 	position: relative;
-	top: 48px;
+	top: 72px;
 	background-color: transparent;
 	color: #FFFFFF;
 }
