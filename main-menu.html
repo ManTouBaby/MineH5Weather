@@ -94,6 +94,7 @@
 			/*.mui-content{
 				width: 70%;
 			}*/
+			
 			.mui-content>.mui-table-view.mui-table-view {
 				margin-top: 0px;
 				padding-top: 133px;
@@ -122,7 +123,7 @@
 			<div class="main-menu-header">
 				<a href="#" class="menu-header mui-navigate-right">
 					<div>
-						<img class="user-portrait fl" src="icon/ic_portrait.png">
+						<img class="user-portrait fl" src="icon/ic_menu_default_portrait.png">
 						<span class="fl">点击登录</span>
 					</div>
 				</a>
@@ -225,15 +226,15 @@
 		<div class="menu-bottom">
 			<div class="mui-row">
 				<div class="menu-item mui-col-xs-3">
-					<img class="icon-24-24" src="icon/ic_news.png" />
+					<img class="icon-24-24" src="icon/ic_menu_bottom_new.png" />
 					<p>热点新闻</p>
 				</div>
 				<div class="menu-item mui-col-xs-3">
-					<img class="icon-24-24" src="icon/ic_xingzuo.png" />
+					<img class="icon-24-24" src="icon/ic_menu_bottom_constellation.png" />
 					<p>星座</p>
 				</div>
 				<div class="menu-item mui-col-xs-3">
-					<img class="icon-24-24" src="icon/ic_setting.png" />
+					<img class="icon-24-24" src="icon/ic_menu_bottom_setting.png" />
 					<p>设置</p>
 				</div>
 			</div>
@@ -246,6 +247,18 @@
 					menubutton: false
 				}
 			});
+
+			if(window.plus) {
+				plusReady();
+			} else {
+				document.addEventListener("plusready", plusReady, false);
+			}
+
+			function plusReady() {
+				plus.webview.currentWebview().setStyle({
+					scrollIndicator: 'none'
+				});
+			}
 		</script>
 	</body>
 
